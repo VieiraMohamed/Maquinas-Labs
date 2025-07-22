@@ -1,8 +1,3 @@
-mkdir -p pentest-lab/screenshots
-cd pentest-lab
-
-# Crear README.md
-cat > README.md << EOF
 # Lab de Pentesting: Escalada de privilegios en máquina TRUST
 
 Este repositorio documenta el proceso paso a paso para comprometer y escalar privilegios en la máquina objetivo con IP \`172.18.0.2\`.
