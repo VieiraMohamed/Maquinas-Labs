@@ -29,6 +29,7 @@ El objetivo principal fue identificar servicios activos, realizar enumeración, 
 \`\`\`bash
 ping -c 4 172.18.0.2
 \`\`\`
+![Ping a la IP](screenshots/ping.PNG)
 
 Se confirmó que el objetivo responde a la red.
 
