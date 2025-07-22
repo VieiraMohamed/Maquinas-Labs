@@ -26,7 +26,7 @@ El objetivo principal fue identificar servicios activos, realizar enumeración, 
 
 ### 1. Verificar conectividad con ping
 
-\`\`\`bash
+\`\`\`
 ping -c 4 172.18.0.2
 \`\`\`
 
