@@ -25,6 +25,8 @@ El objetivo principal fue identificar servicios activos, realizar enumeración, 
 
 Se confirmó que el objetivo responde a la red.
 
+![Ping a la IP](screenshots/ping.PNG)
+
 ### 2. Escaneo de puertos
 
 Se detectó un servicio HTTP en el puerto 80 corriendo Apache httpd 2.4.57 (Debian).
