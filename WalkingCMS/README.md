@@ -37,7 +37,7 @@ Se detectó un servicio HTTP en el puerto 80 corriendo Apache httpd 2.4.57 (Debi
 
 Se visitó la IP [http://172.17.0.2](http://172.17.0.2) en el navegador para inspeccionar contenido.
 
-![Puerto80](screenshots/puertoo80.PNG)
+![Puerto80](screenshots/puerto80.PNG)
 
 ### 4. Enumeración de directorios
 
