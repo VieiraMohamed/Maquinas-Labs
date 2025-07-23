@@ -75,7 +75,7 @@ Con las credenciales `mario:love`, se accedió al panel administrativo.
 
 ### 9. Edición de tema vulnerable
 
-En el escaner anterior se encontró un tema desactualizado con editor habilitado para modificar archivos PHP.
+En el escaner anterior de directorios se encontró un tema desactualizado con editor habilitado para modificar archivos PHP.
 
 ![tema](screenshots/tema.PNG)
 
