@@ -102,7 +102,7 @@ Se visitó la URL del tema modificado para activar la conexión inversa y obtene
 El comando `sudo -l` no funcionó, pero `find` sí.  
 Se identificaron binarios con permiso SUID, especialmente `/usr/bin/env`.
 
-![escala](screenshots/escala2.PNG)
+![escala](screenshots/escalada2.PNG)
 
 ### 14. Tratamiento de TTY para shell interactiva
 
