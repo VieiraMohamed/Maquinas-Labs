@@ -89,13 +89,15 @@ Se reemplazó el código del archivo `index.php` del tema por un reverse shell P
 
 Se usó netcat para escuchar en el puerto configurado.
 
-![conexion](screenshots/conexion.PNG)
+![escucha](screenshots/netcat.PNG)
 
 ### 12. Activación de reverse shell
 
 Se visitó la URL del tema modificado para activar la conexión inversa y obtener shell remota.
 
 ![reverse-shell](screenshots/enlace-reverse-shell.PNG)
+
+![conexion](screenshots/conexion.PNG)
 
 ### 13. Escalada de privilegios
 
