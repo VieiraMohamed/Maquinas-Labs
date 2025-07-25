@@ -27,7 +27,7 @@ El objetivo principal fue identificar servicios activos, realizar enumeración, 
 ### 1. Verificar conectividad con ping
 
 
-    ping -c 4 172.18.0.2
+    ping -c 1 172.18.0.2
 
 
 ![Ping a la IP](screenshots/ping.PNG)
