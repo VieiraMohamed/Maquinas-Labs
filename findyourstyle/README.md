@@ -137,7 +137,7 @@ Funciona correctamente.
 
 ### 9. Abuso de binarios con privilegios
 
-Se verifica que `ballenita` puede ejecutar ls y grep como root sin contraseña:
+Se verifica que puede `ballenita` ejecutar y se ve que puede ls y grep como root sin contraseña:
 
 ![root](screenshots/exeRoot.PNG)
 
