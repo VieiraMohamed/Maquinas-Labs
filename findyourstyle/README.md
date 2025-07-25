@@ -107,7 +107,7 @@ Visitamos HackTricks y usamos el siguiente comando:
     find / -name settings.php -exec grep "drupal_hash_salt\|'database'\|'username'\|'password'\|'host'\|'port'\|'driver'\|'prefix'" {} \; 2>/dev/null
 
 ![hacktricks](screenshots/hacktricks.PNG)
-![user](screenshots/hacktricks.PNG)
+![user](screenshots/userYpass.PNG)
 
 Esto nos permitió localizar posibles credenciales de base de datos y usuarios del sistema.
 
@@ -117,7 +117,7 @@ Esto nos permitió localizar posibles credenciales de base de datos y usuarios d
 
 ![ballenita](screenshots/suBallenita.PNG)
 
-Se prueba acceso con usuario `ballenita` pero no tiene permisos sudo. Se intenta un workaround (acceso sin TTY):
+Se prueba acceso con usuario `ballenita` pero no tiene permisos sudo. Se intenta un acceso sin TTY:
 
     script /dev/null -c "su ballenita"
 
