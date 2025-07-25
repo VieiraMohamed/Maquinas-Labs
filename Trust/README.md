@@ -12,13 +12,13 @@ El objetivo principal fue identificar servicios activos, realizar enumeración, 
 
 ## Herramientas utilizadas
 
-- `ping\`
-- `nmap\`
-- `gobuster\`
-- `hydra\`
-- `ssh\`
-- `vim\`
-- Diccionario `rockyou.txt\`
+- `ping`
+- `nmap`
+- `gobuster`
+- `hydra`
+- `ssh`
+- `vim`
+- Diccionario `rockyou.txt`
 
 ---
 
