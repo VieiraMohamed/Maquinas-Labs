@@ -31,8 +31,12 @@ Se comprobó que la máquina objetivo está activa en la red.
 ---
 
 ### 2. Escaneo de puertos
+## Script de escaneo
 
-        nmap -sV -sC -p- 172.18.0.2 --open -oN scanPuertos.txt
+El script utilizado para escanear los puertos está disponible en:
+
+👉 [`escaneo.sh`](./scriptPuertosLimpios.sh)
+
 
 ![puertos](screenshots/puertos.PNG)
 
