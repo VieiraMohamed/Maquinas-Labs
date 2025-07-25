@@ -102,6 +102,10 @@ Y en la máquina víctima:
 
 ![bash](screenshots/bash.PNG)
 
+Y en ya tenemos conexión:
+
+![bash](screenshots/netcat.PNG)
+
 ---
 
 ### 7. Búsqueda de credenciales en settings.php
