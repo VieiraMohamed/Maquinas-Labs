@@ -110,7 +110,7 @@ Y en ya tenemos conexión:
 
 ### 7. Búsqueda de credenciales en settings.php
 
-Visitamos HackTricks y usamos el siguiente comando:
+Visitamos HackTricks a buscar un sploit para drupal y nos encontramos la siguiente información:
 
     find / -name settings.php -exec grep "drupal_hash_salt\|'database'\|'username'\|'password'\|'host'\|'port'\|'driver'\|'prefix'" {} \; 2>/dev/null
 
